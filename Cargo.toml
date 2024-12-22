@@ -6,6 +6,7 @@ edition = "2021"
 description = "A robust command-line tool for managing, validating, and generating standardised Git commit messages."
 license = "MIT"
 repository = "https://github.com/ThatSealgair/scripture"
+documentation = "https://docs.rs/scripture"
 readme = "README.md"
 keywords = ["cli", "tool", "git"]
 categories = ["command-line-utilities"]
