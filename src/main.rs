@@ -1,4 +1,4 @@
-use clap::{Args, Parser};
+use clap::Parser;
 use log::{error, info};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
