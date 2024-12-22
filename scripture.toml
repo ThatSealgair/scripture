@@ -1,0 +1,66 @@
+# Default configuration for scripture.
+# Follows standards set here: https://gist.github.com/tonibardina/9290fbc7d605b4f86919426e614fe692#file-std-md
+[commit_types]
+add = "Create a capability, e.g. feature, test, dependency"
+cut = "Remove a capability, e.g. feature, test, dependency"
+fix = "Fix an issue, e.g. bug, typo, accident, misstatement"
+bump = "Increase the version of something, e.g. dependency"
+make = "Change the build process, tooling, or infrastructure"
+start = "Begin doing something; e.g. create a feature flag"
+stop = "End doing something; e.g. remove a feature flag"
+refactor = "A code change that MUST be just a refactoring"
+reformat = "Refactor of formatting, e.g. omit whitespace"
+optimise = "Refactor of performance, e.g. speed up code"
+document = "Refactor of documentation, e.g. help files"
+
+[scopes]
+api = "API-related changes"
+backend = "Backend-related changes"
+frontend = "Frontend-related changes"
+database = "Database-related changes"
+auth = "Authentication/Authorisation"
+ui = "User Interface"
+testing = "Testing infrastructure"
+docs = "Documentation"
+ci = "Continuous Integration"
+deps = "Dependencies"
+misc = "Miscellaneous"
+
+[templates]
+default = """
+{detailed_explanation}
+
+{problem_explanation}
+
+{side_effects}
+
+Changes:
+{changes_overview}
+
+Technical details:
+{change_details}
+
+Breaking changes:
+{breaking_changes}
+
+References:
+Resolves: #{issue_number}
+"""
+
+[format_rules]
+subject_line_max = 50
+body_wrap_column = 72
+capitalise_subject = true
+
+[breaking_change_indicators]
+words = [
+    "remove",
+    "delete",
+    "deprecate",
+    "break",
+    "change",
+    "rename",
+    "refactor",
+    "drop",
+    "migrate"
+]

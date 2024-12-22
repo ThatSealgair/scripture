@@ -1,0 +1,59 @@
+min_version: 1.5.3
+
+pre-commit:
+  parallel: true
+  commands:
+    formatting:
+      glob: "*.{rs,toml}"
+      run: cargo fmt --check {staged_files}
+    clippy:
+      glob: "*.rs"
+      run: cargo clippy --all-targets --all-features -- -D warnings
+    test:
+      run: cargo test
+    check-config:
+      glob: "config/*.toml"
+      run: cargo run -- validate-config {staged_files}
+
+#commit-msg:
+#  commands:
+#    validate-message:
+#      # We'll use our own scripture tool to validate the commit message
+#      run: |
+#        message=$(cat $1)
+#        cargo run -- validate-message "$message"
+
+pre-push:
+  parallel: true
+  commands:
+    security-audit:
+      run: cargo audit
+    unused-deps:
+      run: cargo machete
+    cargo-deny:
+      run: cargo deny check licenses sources
+
+skip_output:
+  - meta
+  - success
+  - summary
+    
+metrics:
+  commands:
+    crates-outdated:
+      run: cargo outdated --exit-code 1
+    cyclomatic:
+      run: cargo dev-metrics
+
+post-merge:
+  commands:
+    deps-check:
+      run: |
+        if [[ $(git diff HEAD@{1} -- Cargo.lock) != "" ]]; then
+          cargo clean && cargo check
+        fi
+    config-update:
+      run: |
+        if [[ $(git diff HEAD@{1} -- config/) != "" ]]; then
+          cargo run -- update-config
+        fi
