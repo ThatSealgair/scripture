@@ -1,3 +1,6 @@
+[![Crates.io](https://img.shields.io/crates/v/scripture.svg)](https://crates.io/crates/scripture)
+[![Documentation](https://docs.rs/scripture/badge.svg)](https://docs.rs/scripture/)
+
 # Scripture
 
 A robust command-line tool for managing, validating, and generating standardised Git commit messages. This tool helps maintain consistent commit message standards across your project by providing automated message generation, validation, and formatting capabilities.
