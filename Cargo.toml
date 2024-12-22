@@ -5,25 +5,9 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.5.23", features = ["derive"] }
-crossterm = "0.28.1"
-dirs = "5.0.1"
-ratatui = "0.29.0"
+env_logger = "0.11.6"
+log = "0.4.22"
 regex = "1.11.1"
 serde = { version = "1.0.216", features = ["derive"] }
 textwrap = "0.16.1"
-tokio = { version = "1.42.0", features = ["full"] }
 toml = "0.8.19"
-
-[dev-dependencies]
-cargo-audit = "0.21.0"
-cargo-deny = "0.16.3"
-cargo-machete = "0.7.0"
-cargo-outdated = "0.16.0"
-criterion = "0.5.1"
-mockall = "0.13.1"
-pretty_assertions = "1.4.1"
-test-case = "3.3.1"
-
-[[bench]]
-name = "formatting"
-harness = false
