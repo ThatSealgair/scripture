@@ -4,7 +4,7 @@ pre-commit:
   parallel: true
   commands:
     formatting:
-      glob: "*.{rs,toml}"
+      glob: "*.{rs}"
       run: cargo fmt --check {staged_files}
     clippy:
       glob: "*.rs"
