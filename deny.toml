@@ -1,6 +1,5 @@
 [licenses]
 version = 2  # Opt into new behavior
-default = "deny"
 allow = [
     "MIT",
     "Apache-2.0",
@@ -8,8 +7,24 @@ allow = [
     "Unlicense"
 ]
 
-# We keep these default values from the new behavior
-unlicensed = "deny"
-copyleft = "deny"
-allow-osi-fsf-free = "neither"
 confidence-threshold = 0.8
+
+[bans]
+multiple-versions = "warn"
+wildcards = "allow"
+highlight = "all"
+workspace-default-features = "allow"
+external-default-features = "allow"
+
+[sources]
+unknown-registry = "warn"
+unknown-git = "warn"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []
+
+[advisories]
+version = 2
+
+[graph]
+all-features = false
+no-default-features = false
