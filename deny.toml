@@ -1,0 +1,20 @@
+[licenses]
+# Blanket approval/rejection of licenses
+default = "deny"
+
+# Explicit approval of licenses
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Unicode-3.0",
+    "Unlicense",
+]
+
+# Optional: Specify exceptions for specific packages
+exceptions = []
+
+# Specify handling of multiple licenses
+unlicensed = "deny"
+copyleft = "deny"
+allow-osi-fsf-free = "neither"
+confidence-threshold = 0.8
